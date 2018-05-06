@@ -1,0 +1,35 @@
+{
+  "name": "sociotrack-dashboard",
+  "version": "1.0.0",
+  "description": "sociotrack-dashboard",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "browser-sync": "^2.23.6",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-inject": "^4.3.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^1.0.1",
+    "gulp-watch": "^5.0.0",
+    "gulp": "^3.9.1",
+    "imagemin-pngquant": "^5.0.1",
+    "node-sass": "^4.9.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "gulp-iconfont": "^9.1.0",
+    "gulp-iconfont-css": "^2.1.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}

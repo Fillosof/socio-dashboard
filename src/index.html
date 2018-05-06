@@ -1,0 +1,100 @@
+//= template/head.html
+//= template/header.html
+
+<div class="container-fluid">
+  <div class="row">
+  //= template/sidebar.html
+    
+
+    
+  <main id="main" class="col" role="main">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col text-left">
+            <h2 class="user-name">@ABHISEK.DAS</h2>
+          </div>
+          <div class="col text-right">
+            <span class="btn btn-outline-success" data-toggle="modal" data-target="#addModal">+ Add Social Profile</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 text-left tab-links">
+        <a href="#" class="active">Last day</a>
+        <a href="#">Week</a>
+        <a href="#">Month</a>
+      </div>
+
+
+
+
+
+      <div class="col-sm-6 col-md-4 col-lg-3 cards-wrapper"
+        v-for="track in tracks"
+        :key="track.accID">
+        <div class="square-container"
+        :class="[ track.socialClass ? track.socialClass : track.socialName.toLowerCase() ]">
+          <div class="flex-wrapper">
+            <span class="icon icon-logo"><span class="path1"></span><span class="path2"></span></span>
+            <p class="followers">
+              {{ formatFollowers(track.followers) }}
+              <span class="type-followers" v-if="track.followersName">{{ track.followersName }}</span>
+              <span class="type-followers" v-else>followers</span>
+            </p>
+            <p class="difference"
+              v-if="track.difference">
+                {{ (track.difference > 0) ? '+' : '' }}{{ track.difference }}
+                <span class="icon"
+                  :class="{ 'icon-arrow-up': (track.difference > 0), 'icon-arrow-down': (track.difference < 0) }"
+                  ></span>
+            </p>
+            <p class="difference"
+              v-else>
+                &nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="link-info">
+          <div class="row no-gutters">
+            <div class="col-2">
+              <img :src="track.accImgPath" :alt="track.accName" class="img-fluid link-avatar">              
+            </div>
+            <div class="col-10 flex-column d-flex justify-content-between">
+              <p class="link-type">{{track.socialName}}</p>
+              <p class="link-name">{{track.accName}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Add Social Profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="m-0">Add new social profile for tracking</p>
+            <div class="form-group m-0 font-weight-bold">
+              <label for="URLInput" class="bold m-0">URL</label>
+              <input type="text" class="form-control" id="URLInput" placeholder="https://twitter.com/username">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn-lookup" class="btn">Lookup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </div>
+</div>
+
+
+//= template/data-footer.html

@@ -1,0 +1,385 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"
+@import "./patrials/_gradient.scss"
+@import "./patrials/_iconfont-style.scss"
+
+    
+
+
+// css3 mixing
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+=transition($args...)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -ms-transition: $args
+  -o-transition: $args
+  transition: $args
+
+=bg-cover($bg-img-path, $bg-options) 
+  background: url($bg-img-path) $bg-options
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$bg-img-path}', sizingMethod='scale')
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$bg-img-path}', sizingMethod='scale')"
+
+
+=box-shadow($top, $left, $blur, $color, $inset: false) 
+    @if $inset
+        -webkit-box-shadow: inset $top $left $blur $color
+        -moz-box-shadow: inset $top $left $blur $color
+        box-shadow: inset $top $left $blur $color
+    @else
+        -webkit-box-shadow: $top $left $blur $color
+        -moz-box-shadow: $top $left $blur $color
+        box-shadow: $top $left $blur $color
+
+/* mixin for placeholder decoration */
+=placeholder
+  &::-webkit-input-placeholder 
+      @content
+  &:-moz-placeholder           
+      @content
+  &::-moz-placeholder          
+      @content
+  &:-ms-input-placeholder      
+      @content
+  &::placeholder               
+      @content
+
+// Colors
+$footer-link-color: #147A42
+$shadow-grean: rgb(28, 175, 94)
+$header-height: 70px
+
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Roboto')
+
+
+//  preloader classes
+
+
+body
+    position: relative
+    background: #EFF7ED
+    font-family: 'Roboto', sans-serif !important
+    
+#header
+    height: $header-height
+    .main-logo
+        height: $header-height
+        display: flex;
+        background: rgba(255, 255, 255, 0.1)
+        +box-shadow( 0px, 1px, 0px, rgba($shadow-grean, 0.1), true)
+        
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        .icon-main-logo
+           display: block
+           font-size: 25px
+           height: 25px
+    .base-header
+        background: #fff
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        flex-direction: row
+
+        .head-menu-btn
+            display: inline-block
+            position: relative
+            padding: 15px
+            cursor: pointer
+            .icon
+                font-size: 25px
+            
+            .bubble
+                position: absolute
+                top: 8px
+                right: 2px
+                text-align: center
+                width: 20px
+                height: 20px
+                line-height: 20px
+                vertical-align: middle
+                +border-radius(100px)
+                color: #ffffff
+                font-size: 10px
+                background: #1DCE6C
+            &:hover
+                .bubble
+                    background: darken(#1DCE6C, 10%)
+
+            
+
+            
+
+.nav-max-width
+    width: 20%
+    flex: 0 0 20%
+    min-width: 180px
+    max-width: 280px
+#sidenav
+    position: fixed
+    z-index: 100
+    +linear-gradient(#27B983 -18.15%, #91E857 266.75%)
+    +box-shadow( 0px, -1px, 0px, rgba($shadow-grean, 0.1), true)
+    padding-top: $header-height
+    height: calc(100vh)
+    min-height: 400px
+    .sidebar-sticky
+        // position: -webkit-sticky;
+        // position: sticky;
+        position: relative
+        height: 100vh
+        overflow-x: hidden;
+        overflow-y: auto; // Scrollable contents if viewport is shorter than content.
+
+    .user-info
+        margin: 38px auto
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+
+        .user-avatar
+            height: 45px
+            width: 45px
+            +border-radius(50px)
+            border: 2px solid #ffffff
+            margin-right: 10px
+
+        .user-name
+            position: relative
+            margin: 0
+            font-size: 14px
+            color: #ffffff
+        .user-followers
+            margin: 0
+            font-size: 12px
+            font-weight: bold
+            color: rgba(0, 0, 0, 0.3)
+        .user-caret
+            display: inline-block
+            position: relative
+        .user-caret:after 
+            content: "";
+            background-color: transparent;
+            
+            // position the checkbo
+            position: absolute;
+            right: -16px;
+            bottom: 2px;
+
+            // setting the checkbox
+            width: 8px;
+            height: 8px;
+            border-bottom: 2px solid rgba(0,0,0,.2);
+            border-right: 2px solid rgba(0,0,0,.2);
+            
+            transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+
+    .nav-link
+        display: flex
+        justify-items: center
+        color: #fff
+        padding: 15px 20px
+        +border-radius(5px)
+        &:hover
+            background-color: rgba(255,255,255, 0.20)
+            +box-shadow( 0px, 0px, 20px, rgba(0, 0, 0, 0.10))
+            
+            
+        &.active
+            background-color: rgba(255,255,255, 0.15)
+            +box-shadow( 0px, 0px, 20px, rgba(0, 0, 0, 0.05))
+            
+        span
+            font-size: 14px
+
+        .icon
+            font-size: 20px
+            margin-right: 16px
+
+#main
+    margin-top: $header-height
+    padding-top: $header-height
+    margin-left: 5vw
+    margin-right: 5vw
+    .user-name
+        font-weight: bold;
+        font-size: 24px;
+        text-transform: lowercase;
+        margin: 0
+        padding-left: 10px
+
+        color: #1CAF5E;
+
+    .btn-outline-success
+        margin-right: 10px
+        color: #1CAF5E;
+        border-color: #1CAF5E;
+        &:hover
+            background-color: #1CAF5E;
+            color: #ffffff
+    
+    .tab-links
+        margin: 25px 10px 37px
+        font-size: 16px;
+        color: #333333;
+        a
+            font-size: 16px;
+            color: #333333;
+            line-height: 1
+            padding-bottom: 8px
+            margin-right: 33px
+            &.active
+                border-bottom: 4px solid #B8E986
+            &:hover
+                text-decoration: none
+                border-bottom: 4px solid lighten(#B8E986, 10%)
+
+
+    .cards-wrapper
+        padding-left: 25px
+        padding-right: 25px
+        margin-bottom: 25px
+        .square-container
+            font-family: 'Open Sans'
+            position: relative
+            width: 100%
+            color: #ffffff
+            +border-radius(10px)
+            +box-shadow( 0px, 2px, 9px, rgba(0, 0, 0, 0.13))            
+            p
+                margin: 0
+            &:after
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+            .flex-wrapper
+                position: absolute
+                width: 100%
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                padding: 20px
+                overflow: hidden
+            .icon-logo
+                display: block
+                font-size: 20px
+            .followers
+                font-weight: 600
+                font-size: 36px
+                line-height: 1.2
+            .type-followers
+                display: block
+                font-size: 12px
+                font-weight: 300
+                text-transform: uppercase
+            .difference
+                font-size: 26px
+                line-height: 26px
+                align-self: flex-end
+                .icon
+                    opacity: 0.4
+                    font-size: 16px
+            
+            &.youtube
+                +linear-gradient(rgba(206, 19, 18, 1) 0%, rgba(176, 19, 18, 1) 100%)
+                .icon-logo
+                    @extend .icon-logo-youtube
+
+            &.facebook
+                +linear-gradient(#39579A 0%, #2C4479 100%)
+                .icon-logo
+                    @extend .icon-logo-facebook
+            &.googleplus
+                +linear-gradient(#F93F2D 0%, #C73F2D 100%)
+                .icon-logo
+                    @extend .icon-logo-googleplus
+            &.instagram
+                // background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+                +bg-cover('../images/instagram.png', no-repeat)
+                .icon-logo
+                        @extend .icon-logo-instagram
+            &.linkedin
+                +linear-gradient(#007EBB 0%, #007E9D 100%)
+                .icon-logo
+                    @extend .icon-logo-linkedin
+            &.snapchat
+                +linear-gradient(#FFFE00 0%, #F3F200 100%)
+                .icon-logo
+                    @extend .icon-logo-snapchat
+                .followers
+                    color: #000
+                .type-followers
+                    color: #000
+                .difference
+                    color: #000
+                    .icon:before
+                        color: #000
+            &.twitter
+                +linear-gradient(#059FF5 0%, #059FC3 100%)
+                .icon-logo
+                    @extend .icon-logo-twitter
+            &.vine
+                +linear-gradient(#00B687 0%, #008E87 100%)
+                .icon-logo
+                    @extend .icon-logo-vine
+
+        .link-info
+            margin-top: 10px
+            font-size: 13px
+            line-height: 15px
+            color: #333333
+            .link-avatar
+                +border-radius(4px)
+            .link-type
+                margin: 0
+                padding-left: 10px
+
+                opacity: 0.5
+            .link-name
+                padding-left: 10px
+                margin: 0
+
+
+#addModal
+    font-size: 18px;
+    color: #4F4F4F;
+    
+    #btn-lookup
+        width: 120px;
+        height: 40px;
+        color: #ffffff
+        font-size: 14px
+        +linear-gradient(#53CD72 0%, #1CAF5E 100%)
+        +border-radius(6px)
+        &:hover
+         +linear-gradient(#1CAF5E 0%, #53CD72 100%)
+
+#footer
+    padding: 0 35px
+
+    hr
+        margin-bottom: 0
+    .footer-link
+        font-size: 12px
+        padding: 14px
+        color: $footer-link-color
+        &:hover
+            color: lighten($footer-link-color, 10%)

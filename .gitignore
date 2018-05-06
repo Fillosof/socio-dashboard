@@ -1,0 +1,8 @@
+.idea
+node_modules
+jspm_packages
+link-checker-results.txt
+npm-debug.log
+**/*npm-debug.log.*
+.editorconfig
+CHANGELOG.md
